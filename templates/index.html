@@ -1,58 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flask App</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
     <style>
-        body, h1, p, form, input {
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #2c3e50, #34495e); /* Updated background color */
+            color: #fff; /* Updated text color to white */
             margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        body {
-            background-color: #f4f4f4;
+        header {
+            background: linear-gradient(to right, #007BFF, #00cc99);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
         }
 
         .container {
             max-width: 800px;
-            margin: 50px auto;
+            margin: 0 auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.95);
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
+            border-radius: 10px;
             transition: box-shadow 0.3s ease;
         }
 
         .container:hover {
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
 
         h1 {
-            color: #007BFF;
+            color: #000; /* Updated heading color to black */
+            font-size: 32px;
             margin-bottom: 20px;
-            border-bottom: 2px solid #f0f0f0;
+            border-bottom: 2px solid #007BFF;
             padding-bottom: 10px;
         }
 
         p {
-            color: #666;
-            margin-bottom: 10px;
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 20px;
         }
 
         form {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 20px;
         }
 
         input[type="text"] {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
+            padding: 15px;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            font-size: 18px;
             transition: border-color 0.3s ease;
         }
 
@@ -61,49 +67,69 @@
         }
 
         input[type="submit"] {
-            padding: 10px 15px;
-            background-color: #007BFF;
+            padding: 15px;
+            background: linear-gradient(to right, #FF5733, #FFC300, #33FF57);
             color: #fff;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 20px;
+            transition: background 0.3s ease, transform 0.3s ease, color 0.3s ease;
         }
 
         input[type="submit"]:hover {
-            background-color: #0056b3;
+            background: linear-gradient(to right, #E02D1C, #E6AE00, #1CE659);
             transform: translateY(-2px);
         }
 
         input[type="submit"]:active {
             transform: translateY(0);
+            background: linear-gradient(to right, #FF5733, #FFC300, #33FF57);
+        }
+
+        input[type="submit"]:hover, input[type="submit"]:active {
+            cursor: pointer;
         }
 
         @media (max-width: 600px) {
             .container {
                 margin: 20px 10px;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            form {
+                gap: 15px;
             }
 
             input[type="text"] {
-                font-size: 14px;
+                padding: 12px;
+            }
+
+            input[type="submit"] {
+                padding: 12px;
+                font-size: 18px;
             }
         }
     </style>
 </head>
-
 <body>
+    <header>
+        <h1>Welcome to Our Flask App</h1>
+    </header>
     <div class="container">
-        <h1>Hello Dosto, 
-            Let's make a 2 Tier Application with Flask and MYSQL!</h1>
-        {% for message in messages %}
-            <p>{{ message[0] }}</p>
-        {% endfor %}
-
+        <p>Hello Dosto, let's make a 2 Tier Application with Flask and MySQL!</p>
         <form action="/submit" method="post">
             <input type="text" name="new_message" placeholder="Enter a new message">
             <input type="submit" value="Submit">
         </form>
     </div>
 </body>
-
 </html>
